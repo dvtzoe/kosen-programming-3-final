@@ -8,12 +8,14 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "argparse>=1.4.0",
+    "pydantic>=2.11.7",
     "scipy>=1.16.1",
 ]
 
 # FIXME:Update the cli-name and the function path
 [project.scripts]
-final = "src.main:main"
+final = "src.cli:main"
 
 [dependency-groups]
 dev = [
@@ -23,9 +25,6 @@ dev = [
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
-
-[tool.ruff]
-select = []
 
 [tool.setuptools.packages]
 find = {}
