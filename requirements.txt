@@ -1,0 +1,6 @@
+numpy==2.3.2
+numpy-typing-compat==20250818.2.3
+optype==0.13.4
+scipy==1.16.1
+scipy-stubs==1.16.1.1
+typing-extensions==4.15.0
