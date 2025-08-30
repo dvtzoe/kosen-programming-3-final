@@ -1,7 +1,6 @@
 import argparse
 
-from src._types.args import ArgsModel
-from src.main import main as main_function
+from src._global import g
 
 
 def main():
@@ -21,25 +20,14 @@ def main():
         default="output.wav",
     )
     _ = parser.add_argument(
-        "-f",
-        "--format",
-        type=str,
-        help="Output file format",
-        choices=["wav", "mp3", "flac"],
-    )
-    _ = parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
         help="Enable verbose output",
     )
-    args = parser.parse_args()
+    parsed = parser.parse_args()
 
-    args = ArgsModel(
-        filename=args.filename,  # pyright: ignore[reportAny]
-        output=args.output,  # pyright: ignore[reportAny]
-        format=args.format,  # pyright: ignore[reportAny]
-        verbose=args.verbose,  # pyright: ignore[reportAny]
-    )
+    g.filename = parsed.filename  # pyright: ignore[reportAny]
+    g.output = parsed.output  # pyright: ignore[reportAny]
 
-    main_function(args)
+    g.verbose = parsed.verbos  # pyright: ignore[reportAny]

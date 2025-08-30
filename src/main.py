@@ -1,12 +1,20 @@
-from src._types.args import ArgsModel
+import json
+
+from scipy.io import wavfile
+
+from src._global import g
+from src._types.base import File
 
 
-def main(args: ArgsModel) -> None:
-    if args.verbose:
-        print(f"Input file: {args.filename}")
-        print(f"Output file: {args.output}")
-        if args.format:
-            print(f"Output format: {args.format}")
-        else:
-            print("Output format: wav (default)")
-    print("Hello from final!")
+def main() -> None:
+    if g.verbose:
+        print("Verbose mode is enabled")
+    with open(g.filename, "r", encoding="utf-8") as file:
+        instruction: File = json.load(file)  # pyright: ignore[reportAny]
+        g.sample_rate = instruction.sample_rate
+
+    wavfile.write(
+        g.output,
+        int(instruction.sample_rate),
+        g.data,
+    )
