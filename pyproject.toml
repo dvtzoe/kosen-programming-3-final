@@ -1,6 +1,9 @@
 [project]
 name = "final"
 version = "0.1.0"
+authors = [
+  { name="dvtzoe", email="ohmtzoe@gmail.com" },
+]
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -8,10 +11,21 @@ dependencies = [
     "scipy>=1.16.1",
 ]
 
-[tool.ruff]
-select = []
+# FIXME:Update the cli-name and the function path
+[project.scripts]
+final = "src.main:main"
 
 [dependency-groups]
 dev = [
     "scipy-stubs>=1.16.1.1",
 ]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+select = []
+
+[tool.setuptools.packages]
+find = {}
