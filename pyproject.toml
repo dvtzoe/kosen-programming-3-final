@@ -19,6 +19,7 @@ final = "src.cli:main"
 
 [dependency-groups]
 dev = [
+    "ruff>=0.12.11",
     "scipy-stubs>=1.16.1.1",
 ]
 
