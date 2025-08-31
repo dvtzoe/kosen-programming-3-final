@@ -1,11 +1,11 @@
 import numpy as np
 
-from src._types.base import Modifier
+from src._types.base import BaseModifier
 
 
-class Amplitude(Modifier):
+class Amplitude(BaseModifier):
     """
-    Model for a flat line audio fragment.
+    Model for a flat line modifier.
 
     amplitufe: Amplitude of the flat line.
     """
@@ -13,9 +13,9 @@ class Amplitude(Modifier):
     amplitufe: np.float32
 
 
-class Sine(Modifier):
+class Sine(BaseModifier):
     """
-    Model for a sine wave audio fragment.
+    Model for a sine wave modifier.
 
     frequency: Frequency of the sine wave in Hz.
     amplitude: Amplitude of the sine wave.
@@ -25,3 +25,6 @@ class Sine(Modifier):
     frequency: np.float32
     amplitude: np.float32
     phase: np.float32 = np.float32(0.0)
+
+
+type AnyModifier = Amplitude | Sine

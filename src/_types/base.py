@@ -1,16 +1,16 @@
 from pydantic import BaseModel
 
 
-class Modifier(BaseModel):
+class BaseModifier(BaseModel):
     """
     Base model for modifier.
 
-    duration: Duration of the audio in samples.
-    position: Current position in the audio in samples.
+    start: Start position in the audio in samples.
+    stop: Stop position in the audio in samples.
     """
 
-    duration: int
-    position: int
+    start: int
+    stop: int
 
 
 class File(BaseModel):
@@ -18,8 +18,8 @@ class File(BaseModel):
     Base model for instruction file.
 
     sample_rate: Sample rate of the audio file.
-    data: List of audio fragments.
+    fragments: List of audio fragments.
     """
 
     sample_rate: int
-    fragments: list[Modifier]
+    fragments: list[BaseModifier]
