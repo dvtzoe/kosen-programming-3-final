@@ -1,5 +1,4 @@
-from src._types.modifiers import *
-from src.modifiers import *
+from src._types.modifiers import AnyModifier, Sine
 from src.modifiers.amplitude import amplitude
 from src.modifiers.sine import sine
 
